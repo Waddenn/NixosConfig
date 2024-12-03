@@ -159,7 +159,7 @@ in
       automatic = true;
       dates = "weekly";
       persistent = true;
-      options = "--delete-older-than 7d";
+      options = "--delete-older-than 14d";
     };
   };
 
@@ -168,6 +168,7 @@ in
       enable = true;
       allowReboot = false;
       dates = "daily";
+      persistent = true;
     };
     stateVersion = "24.05";
   };
