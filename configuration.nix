@@ -23,13 +23,13 @@ let
     blanket
     papers
     whatip
-    upscayl
+    #upscayl
     vscode
     mullvad-browser
-    librewolf
+    #librewolf
     ciscoPacketTracer8
     gnome-software
-    pdfarranger
+    #pdfarranger
     resources
     dconf-editor
     vesktop
@@ -56,13 +56,28 @@ in
     <home-manager/nixos>
   ];
 
+  # boot.loader = {
+  #   systemd-boot = {
+  #     enable = true;
+  #     configurationLimit = 20;
+  #     consoleMode = "auto";
+  #   };
+  #   efi.canTouchEfiVariables = true;
+  # };
+
   boot.loader = {
-    systemd-boot = {
-      enable = true;
-      configurationLimit = 20;
-    };
-    efi.canTouchEfiVariables = true;
+  grub = {
+    enable = true;
+    efiSupport = true; 
+    device = "nodev";
+    configurationLimit = 50;
   };
+  efi = {
+    canTouchEfiVariables = true; 
+    efiSysMountPoint = "/boot/efi";
+  };
+};
+
 
   networking = {
     hostName = "asus-nixos";
