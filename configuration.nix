@@ -116,7 +116,6 @@ in
     };
 
     flatpak.enable = true;
-
     fwupd.enable = true;
 
     tailscale = {
@@ -129,7 +128,7 @@ in
   hardware.pulseaudio.enable = false;
   hardware.bluetooth.enable = true;
   security.rtkit.enable = true;
-
+  home-manager.backupFileExtension = "backup";
   users.users.${userName} = {
     isNormalUser = true;
     description = "Tom";
@@ -143,7 +142,6 @@ in
   };
 
   programs = {
-    firefox.enable = true;
     steam = {
       enable = true;
       remotePlay.openFirewall = true;
@@ -151,6 +149,7 @@ in
       localNetworkGameTransfers.openFirewall = true;
     };
   };
+
 
   nixpkgs.config.allowUnfree = true;
 
@@ -196,7 +195,28 @@ in
         ];
     };
     };
+    programs.firefox = {
+    enable = true;
+    # profiles.${userName} = {
+    # };
 
+      # bookmarks = [
+      #   {
+      #     name = "wikipedia";
+      #     tags = [ "wiki" ];
+      #     keyword = "wiki";
+      #     url = "https://en.wikipedia.org/wiki/Special:Search?search=%s&go=Go";
+      #   }
+      # ];
+
+      # settings = {
+      #   "dom.security.https_only_mode" = true;
+      #   "browser.download.panel.shown" = true;
+      #   "identity.fxaccounts.enabled" = false;
+      #   "signon.rememberSignons" = false;
+      # };
+                                
+  };
     home.packages = with pkgs; [
 
     ];
