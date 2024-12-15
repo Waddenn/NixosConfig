@@ -247,14 +247,12 @@ in
           clock-show-weekday = true;
           accent-color = "slate";
         };
-
+        "org.gnome.system.locale" = {
+          custom-value = "fr_FR.UTF-8";
+        };
+        
         # "org/gnome/desktop/background" = {
-        #   color-shading-type = "solid";
-        #   picture-options = "zoom";
-        #   picture-uri = "file:///run/current-system/sw/share/backgrounds/gnome/blobs-l.svg";
         #   picture-uri-dark = "file:///run/current-system/sw/share/backgrounds/gnome/blobs-d.svg";
-        #   primary-color = "#241f31";
-        #   secondary-color = "#000000";
         # };
 
         "org/gnome/desktop/wm/keybindings" = {
