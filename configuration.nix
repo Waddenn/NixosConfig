@@ -15,6 +15,7 @@ let
     search-light
     battery-health-charging
     system-monitor
+    blur-my-shell
   ];
 
   systemPackages = with pkgs; [
@@ -24,13 +25,10 @@ let
     blanket
     papers
     whatip
-    #upscayl
     vscode
     mullvad-browser
-    #librewolf
     ciscoPacketTracer8
     gnome-software
-    #pdfarranger
     resources
     dconf-editor
     vesktop
@@ -39,6 +37,9 @@ let
     showtime
     parabolic
     libreoffice
+    #pdfarranger
+    #librewolf
+    #upscayl
   ];
 
   unneededGnomePackages = with pkgs; [
@@ -246,6 +247,7 @@ in
           clock-show-weekday = true;
           accent-color = "slate";
         };
+
         # "org/gnome/desktop/background" = {
         #   color-shading-type = "solid";
         #   picture-options = "zoom";
@@ -254,20 +256,7 @@ in
         #   primary-color = "#241f31";
         #   secondary-color = "#000000";
         # };
-        # "org/gnome/desktop/screensaver" = {
-        #   color-shading-type = "solid";
-        #   picture-options = "zoom";
-        #   picture-uri = "file:///run-current-system/sw/share/backgrounds/gnome/blobs-l.svg";
-        #   primary-color = "#241f31";
-        #   secondary-color = "#000000";
-        # };
-        # "org/gnome/desktop/wm/preferences" = {
-        #   action-right-click-titlebar = "toggle-maximize";
-        #   action-middle-click-titlebar = "minimize";
-        #   resize-with-right-button = true;
-        #   mouse-button-modifier = "<super>";
-        #   button-layout = ":minimize,close";
-        # };
+
         "org/gnome/desktop/wm/keybindings" = {
           minimize = ["<Super>h"];
           show-desktop = ["<Super>d"];
@@ -316,13 +305,13 @@ in
           name = "Resources";
         };
 
-        # "org/gnome/shell/extensions/search-light" = {
-        #   shortcut-search = ["<Super>Space"];
-        #   scale-width = "0,2";
-        #   scale-height = "0,1";
-        #   border-radius = "2,0";
-        #   blur-brightness = "0,6";
-        # };
+        "org/gnome/shell/extensions/search-light" = {
+          shortcut-search = ["<Super>Space"];
+          scale-width = "0,2";
+          scale-height = "0,1";
+          border-radius = "2,0";
+          blur-brightness = "0,6";
+        };
 
         "org/gnome/shell/extensions/system-monitor" = {
           show-cpu = true;
