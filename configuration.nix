@@ -14,6 +14,7 @@ let
     alphabetical-app-grid
     search-light
     battery-health-charging
+    system-monitor
   ];
 
   systemPackages = with pkgs; [
@@ -48,6 +49,7 @@ let
     totem
     gnome-connections
     gnome-music
+    gnome-shell-extensions
   ];
 in
 {
@@ -56,28 +58,14 @@ in
     <home-manager/nixos>
   ];
 
-  # boot.loader = {
-  #   systemd-boot = {
-  #     enable = true;
-  #     configurationLimit = 20;
-  #     consoleMode = "auto";
-  #   };
-  #   efi.canTouchEfiVariables = true;
-  # };
-
   boot.loader = {
-  grub = {
-    enable = true;
-    efiSupport = true; 
-    device = "nodev";
-    configurationLimit = 50;
+    systemd-boot = {
+      enable = true;
+      configurationLimit = 20;
+      consoleMode = "auto";
+    };
+    efi.canTouchEfiVariables = true;
   };
-  efi = {
-    canTouchEfiVariables = true; 
-    efiSysMountPoint = "/boot/efi";
-  };
-};
-
 
   networking = {
     hostName = "asus-nixos";
@@ -126,8 +114,6 @@ in
         support32Bit = true; 
       };
       pulse.enable = true;
-      # Pour utiliser les applications JACK, décommentez la ligne suivante
-      # jack.enable = true;
     };
 
     flatpak.enable = true;
@@ -164,7 +150,6 @@ in
       localNetworkGameTransfers.openFirewall = true;
     };
   };
-
 
   nixpkgs.config.allowUnfree = true;
 
@@ -203,10 +188,7 @@ in
         enable = true; 
         theme = "agnoster"; 
         plugins = [
-          "git"                
-          #"zsh-autosuggestions" 
-          #"zsh-syntax-highlighting" 
-          #"zsh-completions"     
+          "git"                  
         ];
     };
     };
