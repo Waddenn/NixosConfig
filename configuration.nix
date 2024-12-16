@@ -131,6 +131,9 @@ in
   hardware.bluetooth.enable = true;
   security.rtkit.enable = true;
   home-manager.backupFileExtension = "backup";
+  programs.direnv.enable = true;
+  zramSwap.enable = true;
+
   users.users.${userName} = {
     isNormalUser = true;
     description = "Tom";
@@ -238,6 +241,7 @@ in
             "Battery-Health-Charging@maniacx.github.com"
             "system-monitor@gnome-shell-extensions.gcampax.github.com"
             "search-light@icedman.github.com"
+            "blur-my-shell@aunetx"
           ];
         };
 
@@ -252,7 +256,7 @@ in
         };
         
         # "org/gnome/desktop/background" = {
-        #   picture-uri-dark = "file:///run/current-system/sw/share/backgrounds/gnome/blobs-d.svg";
+        #   picture-uri-dark = "file:///etc/backgrounds/";
         # };
 
         "org/gnome/desktop/wm/keybindings" = {
@@ -305,17 +309,13 @@ in
 
         "org/gnome/shell/extensions/search-light" = {
           shortcut-search = ["<Super>Space"];
-          scale-width = "0,2";
-          scale-height = "0,1";
-          border-radius = "2,0";
-          blur-brightness = "0,6";
         };
 
         "org/gnome/shell/extensions/system-monitor" = {
           show-cpu = true;
-          show-download = true;
+          show-download = false;
           show-memory = true;
-          show-swap = false;
+          show-swap = true;
           show-upload = false;
         };
 
@@ -326,24 +326,6 @@ in
           show-preferences = false;
           show-system-indicator = false;
         };
-
-        # "org/gnome/shell/extensions/caffeine" = {
-        #   enable-fullscreen = true;
-        #   restore-state = true;
-        #   show-indicator = true;
-        #   show-notification = false;
-        # };
-        # "org/gnome/shell/extensions/blur-my-shell" = {
-        #   brightness = 0.9;
-        # };
-        # "org/gnome/shell/extensions/blur-my-shell/panel" = {
-        #   customize = true;
-        #   sigma = 0;
-        # };
-        # "org/gnome/shell/extensions/blur-my-shell/overview" = {
-        #   customize = true;
-        #   sigma = 0;
-        # };
       };
   };
 }
